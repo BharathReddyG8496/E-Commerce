@@ -7,11 +7,10 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
+
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 @Entity
@@ -52,7 +51,7 @@ public class LocalUser {
     private String lastName;
     /** The addresses associated with the user. */
     @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     @ToString.Exclude
     private List<Address> addresses = new ArrayList<>();

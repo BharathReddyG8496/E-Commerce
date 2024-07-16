@@ -100,9 +100,9 @@ public class AdminController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    }
 
-  @DeleteMapping("/delete_category_byName/{category_name}")
-    public ResponseEntity<Object> deleteCategoryByName(@PathVariable String category_name){
-        categoryServices.deleteCategoryByName(category_name);
+  @DeleteMapping("/delete_category_byId/{category_Id}")
+    public ResponseEntity<Object> deleteCategoryById(@PathVariable Long category_Id){
+        categoryServices.DeleteCategoryById(category_Id);
         return new ResponseEntity<>(HttpStatus.OK);
   }
 

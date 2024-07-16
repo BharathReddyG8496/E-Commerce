@@ -44,13 +44,16 @@ public class PublicController {
         try {
             System.out.println(user);
             LocalUser localUser = userService.registerUser(user);
-            if(localUser==null)
+            if (localUser == null)
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             else
                 return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (UserAlreadyExistsException e) {
+        }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
+
     }
+
+
 
 }

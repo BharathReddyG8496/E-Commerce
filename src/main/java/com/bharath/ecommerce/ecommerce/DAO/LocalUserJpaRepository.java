@@ -11,4 +11,10 @@ public interface LocalUserJpaRepository extends JpaRepository<LocalUser,Long> {
     boolean existsByEmailIgnoreCase(String email);
 
     boolean existsByUsernameIgnoreCase(String username);
+
+    LocalUser findByUsername(String username);
+
+    long deleteByUsername(String username);
+
+
 }
